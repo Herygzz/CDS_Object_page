@@ -1,0 +1,55 @@
+@Metadata.layer: #CORE
+annotate entity zdd_salesdoc_proj with
+{
+  @UI.facet: [
+  // Definición de Collections
+  // Collection para Headr
+              { id: 'IdHdr', position: 10, label: 'Cabecera Doc. de Ventas',    purpose: #HEADER, type: #COLLECTION }
+
+  // Collection para el área de Contenido
+             ,{ id: 'IdOrg',  position: 10, label: 'Información Organizacional', purpose: #STANDARD, type: #COLLECTION }
+             ,{ id: 'IdCust', position: 20, label: 'Información de Cliente',     purpose: #STANDARD, type: #COLLECTION }
+
+  // Asignación de Collections
+             ,{ id: 'Hdr1', position: 10, purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, parentId: 'IdHdr',  targetQualifier: 'Hdr10' }
+             ,{ id: 'Org' , position: 20, purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, parentId: 'IdOrg',  targetQualifier: 'Org10' }
+             ,{ id: 'Cus' , position: 30, purpose: #STANDARD, type: #FIELDGROUP_REFERENCE, parentId: 'IdCust', targetQualifier: 'Cus10' }
+
+  // Tabla de Detalle
+             ,{ id: 'IdItm', position: 40, label: 'Posiciones de Pedido', purpose: #STANDARD, type: #LINEITEM_REFERENCE, targetElement: '_CompItm' }
+             ]
+
+//  @UI.identification: [{ position: 10, importance: #HIGH, type: #FOR_ACTION, dataAction: 'DELETE', label: 'Delete' },
+//                       { position: 11, importance: #HIGH, type: #FOR_ACTION, dataAction: 'CREATE', label: 'Crear Pedido' }]
+
+  @UI.identification: [{ position: 10, importance: #HIGH, type: #FOR_ACTION, dataAction: 'DELETE', label: 'Borrar' },
+                       { position: 11, importance: #HIGH, type: #FOR_ACTION, dataAction: 'CREATE', label: 'Crear Pedido' } ]
+
+  @UI.lineItem: [{ position: 10, label: 'Num. Documento', importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Hdr10', position: 10 }]
+  Vbeln;
+
+  @UI.lineItem: [{ position: 20, label: 'Fecha', importance: #LOW }]
+  Erdat;
+  @UI.lineItem: [{ position: 30, label: 'Hora', importance: #LOW }]
+  Erzet;
+
+  @UI.lineItem: [{ position: 40, label: 'Clase de Documento', importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Hdr10', position: 20 }]
+  Auart;
+  @UI.lineItem: [{ position: 50, label: 'Org. Ventas', importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Org10', position: 20 }]
+  Vkorg;
+  @UI.lineItem: [{ position: 60, label: 'Canal Distr.', importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Org10', position: 30 }]
+  Vtweg;
+  @UI.lineItem: [{ position: 70, label: 'Sector', importance: #MEDIUM }]
+  @UI.fieldGroup: [{ qualifier: 'Org10', position: 40 }]
+  Spart;
+  @UI.lineItem: [{ position: 80, label: 'Cliente', importance: #HIGH }]
+  @UI.fieldGroup: [{ qualifier: 'Cus10', position: 10 }]
+  Kunnr;
+  /* Associations */
+  //    _CompItm;
+
+}

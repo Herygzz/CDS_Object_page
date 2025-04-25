@@ -1,0 +1,29 @@
+@Metadata.layer: #CORE
+annotate entity zdd_salesims_proj with
+{
+  @UI.lineItem: [{ position: 10, label: 'Num. Documento' }]
+  Vbeln;
+  @UI.lineItem: [{ position: 20, label: 'Pos. Documento' }]
+  Posnr;
+  @UI.lineItem: [{ position: 30, label: 'Material' }]
+  Matnr;
+  @UI.lineItem: [{ position: 40, label: 'Desc. Material' }]
+  Arktx;
+  @UI.lineItem: [{ position: 50, label: 'Unidad de medida' }]
+  Meins;
+  @UI.lineItem: [{ position: 60, label: 'Valor Neto' }]
+  Netwr;
+  @UI.lineItem: [{ position: 70, label: 'Moneda' }]
+  Waerk;
+  @UI.lineItem: [{ position: 80, label: 'Cantidad' }]
+  Kwmeng;
+  @UI.lineItem: [{ position: 90, label: 'Unidad de Medida' }]
+  Vrkme;
+  @UI.lineItem: [{ position: 100, label: 'Centro' }]
+  Werks;
+  @UI.lineItem: [{ position: 110, label: 'Precio Neto' }]
+  Netpr;
+  /* Associations */
+  //    _SalesDoc;
+
+}
